@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Detail</title>
+</head>
+<body>
+    <h1>Property Detail</h1>
+    <h2>{{ property.name }}</h2>
+    <p><strong>Address:</strong> {{ property.address }}</p>
+    <p><strong>Location:</strong> {{ property.location }}</p>
+
+    <h2>Units</h2>
+    {% if property.units.all %}
+        <ul>
+        {% for unit in property.units.all %}
+            <li>{{ unit.unit_type }} - Rent: {{ unit.rent_cost }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No units available for this property.</p>
+    {% endif %}
+</body>
+</html>
